@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Sheila 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #fcb69f);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Soft glowing orbs behind the card */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.55;
+      animation: floatOrb 12s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .orb-1 { width: 320px; height: 320px; background: #ff6b9d; top: -80px;  left: -80px; }
+    .orb-2 { width: 260px; height: 260px; background: #c471ed; bottom: -60px; right: -60px; animation-delay: -4s; }
+    .orb-3 { width: 200px; height: 200px; background: #ffd89b; bottom: 20%;  left: 12%;  animation-delay: -8s; }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(40px) scale(1.08); }
+    }
+
+    /* Floating emoji */
+    .emoji {
+      position: fixed;
+      font-size: 2rem;
+      opacity: 0.85;
+      animation: rise linear infinite;
+      pointer-events: none;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(110vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.9; }
+      90% { opacity: 0.7; }
+      100% {
+        transform: translateY(-15vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      z-index: 10;
+      max-width: 640px;
+      margin: 1.5rem;
+      padding: 3.5rem 3rem;
+      text-align: center;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow:
+        0 25px 60px rgba(161, 109, 209, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      animation: cardIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .big-emoji {
+      font-size: 4.5rem;
+      display: inline-block;
+      animation: beat 1.6s ease-in-out infinite;
+      filter: drop-shadow(0 8px 16px rgba(255, 107, 157, 0.4));
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      15%      { transform: scale(1.15); }
+      30%      { transform: scale(1); }
+      45%      { transform: scale(1.1); }
+    }
+
+    h1 {
+      font-family: "Dancing Script", cursive;
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      font-weight: 700;
+      color: #6b2d5c;
+      margin: 0.75rem 0 0.5rem;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #5a3b52;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.75rem;
+    }
+
+    .message {
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.9;
+      color: #4a2d43;
+    }
+
+    .divider {
+      width: 90px;
+      height: 3px;
+      margin: 1.75rem auto;
+      border-radius: 3px;
+      background: linear-gradient(90deg, transparent, #ff6b9d, #c471ed, transparent);
+    }
+
+    .sign-off {
+      font-family: "Dancing Script", cursive;
+      font-size: 1.9rem;
+      color: #9b3070;
+    }
+
+    .emoji-row {
+      font-size: 1.6rem;
+      letter-spacing: 0.6rem;
+      margin-top: 1.25rem;
+    }
+
+    .emoji-row span {
+      display: inline-block;
+      animation: sway 3s ease-in-out infinite;
+    }
+    .emoji-row span:nth-child(2) { animation-delay: 0.3s; }
+    .emoji-row span:nth-child(3) { animation-delay: 0.6s; }
+    .emoji-row span:nth-child(4) { animation-delay: 0.9s; }
+    .emoji-row span:nth-child(5) { animation-delay: 1.2s; }
+
+    @keyframes sway {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+
+    /* Twinkling stars */
+    .star {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0;
+      animation: twinkle 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50%      { opacity: 0.9; transform: scale(1.3); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Glowing orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Card -->
+  <main class="card">
+    <div class="big-emoji">🌸</div>
+    <h1>Hello World, Sheila!</h1>
+    <p class="subtitle">✨ A little corner of the internet, made just for you ✨</p>
+
+    <p class="message">
+      Some people make the world softer just by being in it —
+      and you're one of them. 💖<br />
+      Thank you for your kindness, your light, and the beauty you bring
+      into every single day. 🌷
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="sign-off">With love &amp; sunshine,</p>
+    <div class="emoji-row">
+      <span>💗</span><span>🌈</span><span>🌻</span><span>🦋</span><span>💫</span>
+    </div>
+  </main>
+
+  <script>
+    // Floating emoji sprinkled across the page
+    const emojis = ["💖", "🌸", "✨", "🌷", "🦋", "💫", "🌈", "🌻", "💗", "🌺"];
+    const count = 16;
+
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement("span");
+      el.className = "emoji";
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = 1.4 + Math.random() * 1.8 + "rem";
+      el.style.animationDuration = 9 + Math.random() * 12 + "s";
+      el.style.animationDelay = -Math.random() * 18 + "s";
+      document.body.appendChild(el);
+    }
+
+    // Twinkling stars
+    for (let i = 0; i < 24; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDelay = Math.random() * 3 + "s";
+      star.style.transform = `scale(${0.5 + Math.random()})`;
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
